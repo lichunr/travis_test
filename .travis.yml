@@ -5,6 +5,9 @@ python:
 install:
 - pip install -r requirements.txt
 - pip install nose
+branches:
+  only:
+  - master
 script: nosetests
 addons:
   apt:
@@ -18,4 +21,4 @@ env:
   - secure: ORaE2rLAXeNcd+bMzIKBNSqFWiqmaHAzk479DYijt98PqKhrxXS9lF6ey+FPYZuVQ6SKFFhwXxwUh96HDoX1wCHHlDxGTS/aPdU1SjKAk/AqZNJTL1izs9eTm+QbalARUU+GDVUWoporoxzH11+cob4DZMgnNxF9UaV1+3Gqjw5q+cHZ45B6U0P7HX38MYEl0isv0s4qX1d4jL/tyk3VefvaxjBunspCzhO9wWRvm7Lr3xM0R5UndIbZ69u/lZdi73Zc7cvyDCiJYPO2JB+N5/627LukofVKa1XHUun420q0TclTzYc6riJqBQqgVPycGzrQP+MfDgmN/9uL09MbLz6/tGTOcZ4w9c0Y7C3Prj1h2c85ujlse3fX6NUGw3h9d8sgIEXU5EUbcj2g9dxNVT5qQyC4HbiUXNL4MSx1cLg+p/iR4BvBnPhLhOIQDDkORg5UBrtue2simbBfAXOnoAsnqv7SZhkVGNQgI6u7qYnKLo4oDeeGL3Ouktp39jTm+n7ZYQU2TTGFPxRdsnIoFGyNYiaNdcqRoq9IH1s6l0rF+hneYKB3TL0DMBg86+JtMfbx4plv46R8QRGWchXl/40w/VnL8q1Z4oRrLDHWvTpaMS/Yc85/fJHstYtY5SjP1N9NsU2YKdZuuJ9CVzGqgIJHxv/ZaPUtpfJxnlUsh4Y=
 after_success:
 - export SSHPASS=$DEPLOY_PASS
-- sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/scripts/test.sh
+- sshpass -e ssh chun@138.68.59.141 /home/chun/scripts/test.sh
