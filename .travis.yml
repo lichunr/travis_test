@@ -9,7 +9,8 @@ branches:
   only:
   - master
 script: nosetests
-ssh_known_hosts: 138.68.59.141
+addons:
+  ssh_known_hosts: 138.68.59.141
 after_success:
 - ssh chun@138.68.59.141 /home/chun/scripts/test.sh
 before_install:
