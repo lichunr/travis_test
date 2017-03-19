@@ -9,13 +9,8 @@ branches:
   only:
   - master
 script: nosetests
-addons:
-  apt:
-    packages:
-    - sshpass
-env:
-  global:
-    secure: YEwcd7E5Z6Ag1BxzF6YGRhS7yJztER3NqGEpyjQs2c1UENUlhIX70p1Z4Js6E9lRJ8ouc7Ws/j+k2oEDgNgO1JYYa6kaCWc+4fykCDrZs5kB+mpYsNxNOMIgAj0oWROOsa+mkjuK3GjIB5pqvekq0UhM50bdx3jaBj9ERgKD4V8xG0ZvMIXR9AKJkNFx+JsqKr/v4Fepg3xTys3nvuogljzLLVwkvreFN7x7FZnYCjUGtFjASvktt91ZM6IbukiqPQnfn8ypdTNLEY3H1/+Uw41yKUVtAcHZte4utrzPFNYQxdMT4LyUIlB0GDJkmhn593aEsxL3EpLcWFB0QE0Z/H6cX/g+A0Qrb6i6d96FN1Z1Nisxu7sqLLb5XCnBOMImSuSr3RW8+LjNt1lyL8BxZAcmhAUvE09wY1UXBN9CMUr+Wax81Q4Z32VYEHqXhaIkJwcN3NIai0UwyvRXEWQO9lmjR59R0s1ZR77J5Qwm7aLBA+kB06IdrDb2aeL9GLMC9f4frxzX/d/ws38fjPRl0nx+d02V9H7lABAkqtTY+l+FQpxXyBNTw9KoclOl9whxv8xezOHO7AqoAxp7G6s1sYZoMZ0tUDEMPlLIE9X8F+aWPShRmM/Ut0WXYg8Rzv5Je5tZob2JuSzG+viZ5bCvPrjzADwBDXexTp/QWgxloJE=
 after_success:
-- export SSHPASS=$DEPLOY_PASS
-- sshpass -e ssh chun@138.68.59.141 /home/chun/scripts/test.sh
+- ssh chun@138.68.59.141 /home/chun/scripts/test.sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_db7d4a61814d_key -iv $encrypted_db7d4a61814d_iv
+  -in id_rsa.enc -out id_rsa -d
