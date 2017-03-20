@@ -15,7 +15,7 @@ after_success:
 - ssh chun@138.68.59.141 /home/chun/scripts/test.sh
 before_install:
 - openssl aes-256-cbc -K $encrypted_db7d4a61814d_key -iv $encrypted_db7d4a61814d_iv
-  -in id_rsa.enc -out id_rsa -d
-- rm id_rsa.enc
-- chmod 600 id_rsa
-- mv id_rsa ~/.ssh/id_rsa
+  -in xkool_deploy_key.enc -out xkool_deploy_key -d
+- rm xkool_deploy_key.enc
+- chmod 600 xkool_deploy_key
+- mv xkool_deploy_key ~/.ssh/id_rsa
